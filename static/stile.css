@@ -1,6 +1,6 @@
 @font-face {
     font-family: sacramento;
-    src: url(assets/fonts/sacramento.ttf);
+    src: url('https://github.com/reinanbr/cardapio/raw/main/assets/fonts/sacramento.ttf');
   }
 
 h3{
