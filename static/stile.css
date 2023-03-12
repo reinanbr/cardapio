@@ -1,10 +1,7 @@
-@font-face {
-    font-family: sacramento;
-    src: url('https://github.com/reinanbr/cardapio/raw/main/assets/fonts/sacramento.ttf');
-  }
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 
 h3{
-    font-family: sacramento;
+    font-family: 'sacramento',cursive;
 }
 
 *{
