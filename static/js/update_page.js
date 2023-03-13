@@ -1,3 +1,5 @@
+
+
 countTime = () =>{
     var date = new Date();
 
@@ -33,10 +35,11 @@ countTime = () =>{
             timeDay:timeDay}
 }
 
-updateDate = () =>{
-    let date = countTime()
 
-    $('#timeCount').text(`${date.hour}:${date.minute}:${date.seconds}. ${date.dayWeekName}, ${date.dayDate} de ${date.monthName} ${date.year}. ${date.timeDay}`)
+updateDate = () =>{
+    let date = countTime();
+
+    $('#timeCount').text(`${date.hour}:${date.minute}:${date.seconds}. ${date.dayWeekName}, ${date.dayDate} de ${date.monthName} ${date.year}. ${date.timeDay}`);
 }
 
-setInterval(updateDate,800)
+setInterval(updateDate,800);
