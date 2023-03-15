@@ -1,5 +1,14 @@
 'use strict';
-// import { nextHoraryFood,jsonHoraryFood,countTime } from "./tools";
+// Reinan Br <slimchatuba@gmail.com>
+// DateInit: 12 Mar 2023
+// LICENSE: BSD-3
+// WebApp: foodInfo from my college
+// Version: 0.1.3 - Carcaju
+
+
+
+
+////////////////////////////////// tools date //////////////////////////////////////////
 
 // get date info json
 $(function(){
@@ -39,80 +48,133 @@ const countTime = () =>{
 }
 
 
-const jsonHoraryFood = {morning:{init:{hour:9,minute:30},end:{hour:10}},
-                afternoon:{init:{hour:15,minute:30},end:{hour:16}},
-                night:{init:{hour:18,minute:30},end:{hour:19}}};
+const jsonHoraryFood = {morning:{init:'9:30',end:'10:00'},
+                afternoon:{init:'15:30',end:'16:00'},
+                night:{init:'18:30',end:'19:00'}};
 
 
+class MakeBaseDate{
+    constructor(){
+        this.year = false
+        this.month = false
+        this.day = false
+        this.hour = false
+        this.minutes = false
+        this.seconds = false
+    }
 
+    setMonth(month){
+        this.month = month.toString().length > 1 ? month : `0${month}`
+        return this.month
+    }
+    setDay(day){
+        this.day = day.toString().length > 1 ? day : `0${day}`
+        return this.day
+    }
+    setHour(hour){
+        this.hour = hour.toString().length > 1 ? hour : `0${hour}`
+        return this.hour
+    }
+    setMinutes(minutes){
+        this.minutes = minutes.toString().length > 1 ? minutes : `0${minutes}`
+        return this.minutes
+    }
+    setSeconds(seconds){
+        this.seconds = seconds.toString().length > 1 ? seconds : `0${seconds}`
+        return this.seconds
+    }
 
-const nextHoraryFood = () => {
-    let date = countTime()
-    if(date.dayWeek>0 && date.dayWeek<=5){
+    date(){
+        let dateToday = countTime()
+        let month = this.month ? this.month : this.setMonth(dateToday.month+1)
+        let day = this.day ? this.date : this.setDay(dateToday.dayDate)
+        let hour = this.hour ? this.hour : this.setHour(dateToday.hour)
+        let minutes = this.minutes ? this.minutes : this.setMinutes(dateToday.minute)
+        let seconds = this.seconds ? this.seconds : this.setSeconds(dateToday.seconds)
+        let stringDate = `${dateToday.year}-${month}-${day}T${hour}:${minutes}:${seconds}`
 
-        //morning
-        if(date.hour<=jsonHoraryFood.morning.init.hour){
-           let hourCount = jsonHoraryFood.morning.init.hour - date.hour
-           let minuteCount = Math.abs(jsonHoraryFood.morning.init.minute - date.minute)
-           let secondsCount = 60 - date.seconds
-
-            return {food:false,
-                horaryFood:jsonHoraryFood.morning.init,
-                hourCount:hourCount,
-                minuteCount:minuteCount,
-                secondsCount:secondsCount}
-        }
-        else if(date.hour==jsonHoraryFood.morning.init.hour && date.minute >= jsonHoraryFood.morning.init.minute && date.minute <= 59){
-            return {food:true,
-                    horaryEnd:jsonHoraryFood.morning.end,
-                    minuteCount:60-date.minute,
-                    secondsCount:60-date.seconds}
-        }
-
-        // afternoon
-        if(date.hour<=jsonHoraryFood.afternoon.init.hour){
-           let hourCount = jsonHoraryFood.afternoon.init.hour - date.hour
-           let minuteCount = jsonHoraryFood.afternoon.init.minute - date.minute
-           let secondsCount = 60 - date.seconds
-
-            return {food:false,
-                horaryFood:jsonHoraryFood.afternoon.init,
-                hourCount:hourCount,
-                minuteCount:minuteCount,
-                secondsCount:secondsCount}
-        }
-        else if(date.hour==jsonHoraryFood.afternoon.init.hour && date.minute >= jsonHoraryFood.afternoon.init.minute && date.minute <= 59){
-            return {food:true,
-                    horaryEnd:jsonHoraryFood.afternoon.end,
-                    minuteCount:60-date.minute,
-                    secondsCount:60-date.seconds}
-        }
-
-        // night
-        if(date.hour<=jsonHoraryFood.night.init.hour){
-            let hourCount = jsonHoraryFood.night.init.hour - date.hour
-            let minuteCount = jsonHoraryFood.night.init.minute - date.minute
-            let secondsCount = 60 - date.seconds
-
-            return {food:false,
-                horaryFood:jsonHoraryFood.night.init,
-                hourCount:hourCount,
-                minuteCount:minuteCount,
-                secondsCount:secondsCount}
-        }
-        else if(date.hour==jsonHoraryFood.night.init.hour && date.minute >= jsonHoraryFood.night.init.minute && date.minute <= 59){
-            return {food:true,
-                    horaryEnd:jsonHoraryFood.night.end,
-                    minuteCount:60-date.minute,
-                    secondsCount:60-date.seconds}
-        }
+        //console.log(stringDate)
+        let returnDate = new Date(stringDate)
+        return returnDate
     }
 }
 
 
 
 
-var readFood = () =>{
+
+
+
+
+
+
+/////////////////////////////  working date ////////////////////////////////////////
+
+
+const nextHoraryFood = () => {
+    let date = countTime()
+    if(date.dayWeek>0 && date.dayWeek<=5){
+        //time limit for get food
+        if(date.hour < 20){
+
+            //morning
+            var baseMorningInit = new MakeBaseDate();
+            baseMorningInit.setHour(9);
+            baseMorningInit.setMinutes(30);
+            baseMorningInit.setSeconds(0);
+
+            var baseMorningEnd = new MakeBaseDate();
+            baseMorningEnd.setHour(10)
+            baseMorningEnd.setMinutes(0)
+            baseMorningEnd.setSeconds(0)
+            //console.log(baseMorningEnd.date())
+            let morningInitDate = baseMorningInit.date()
+            let morningInitSeconds = morningInitDate.valueOf()
+
+            if(Date.now()<morningInitSeconds){
+                var diffTime = morningInitSeconds-Date.now()
+                //console.log(diffTime)
+                let seconds = Math.floor(diffTime/1000);
+                let minutes = Math.floor(seconds/60);
+                let hour = Math.floor(minutes/60);
+
+                let resSeconds = seconds%60;
+                let resMinutes = minutes%60;
+
+                return {food:false,
+                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
+                        horaryFood:{hour:morningInitDate.getHours(),minutes:morningInitDate.getMinutes()}
+                        }
+
+
+
+            }
+        }
+    }
+}
+
+
+const painelHorary = () => {
+    let infoHorary = nextHoraryFood();
+   // console.log(infoHorary.secondsCount)
+    if(!infoHorary.food){
+     //   console.log(infoHorary.secondsCount)
+        $('#infoHorary').html(`<small>O lanche será liberado às ${infoHorary.horaryFood.hour}:${infoHorary.horaryFood.minutes}.<br/>Faltam ${infoHorary.timeRes.hour} horas, ${infoHorary.timeRes.minutes} minutos e ${infoHorary.timeRes.seconds} segundos</small>`);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////// getting info food /////////////////////////////////////////
+const readFood = () =>{
     fetch('https://raw.githubusercontent.com/reinanbr/cardapio/main/assets/info.json')
     .then((res)=>{
         return res.json();
@@ -129,17 +191,24 @@ var readFood = () =>{
     })
 }
 
-const painelHorary = () => {
-    let infoHorary = nextHoraryFood();
-    //console.log(infoHorary.secondsCount)
-    if(!infoHorary.food){
-        //console.log(infoHorary.secondsCount)
-        $('#infoHorary').html(`<small>O lanche será liberado às ${infoHorary.horaryFood.hour}:${infoHorary.horaryFood.minute}.<br/>Faltam ${infoHorary.hourCount} horas, ${infoHorary.minuteCount} minutos e ${infoHorary.secondsCount} segundos</small>`);
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////// start app and loops //////////////////////////////////
 
 readFood();
 painelHorary();
 setInterval(painelHorary,700);
 setInterval(readFood,10000)
 })
+
+
+
