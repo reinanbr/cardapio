@@ -103,7 +103,15 @@ class MakeBaseDate{
 
 
 
+///////////////////////////// tools ///////////////////////////////////
 
+// image painel
+const painelImage = (imageName) => {
+    //let htmlBase = ``
+    
+    $('#painelImage').html(`              <img class="card-img-top" height='140' width="250" src='assets/imgs/${imageName}.gif'>`)
+    
+}
 
 
 
@@ -115,7 +123,8 @@ const nextHoraryFood = () => {
     let date = countTime()
     if(date.dayWeek>0 && date.dayWeek<=5){
         //time limit for get food
-        if(date.hour < 20){
+        if(date.hour < 22 && date.hour>7){
+            painelImage('study')
 
             //morning
             var baseMorningInit = new MakeBaseDate();
@@ -145,10 +154,72 @@ const nextHoraryFood = () => {
                         timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
                         horaryFood:{hour:morningInitDate.getHours(),minutes:morningInitDate.getMinutes()}
                         }
+                }
 
+            //AfterNoon
+            var baseNoonInit = new MakeBaseDate();
+            baseNoonInit.setHour(15);
+            baseNoonInit.setMinutes(30);
+            baseNoonInit.setSeconds(0);
 
+            var baseNoonEnd = new MakeBaseDate();
+            baseNoonEnd.setHour(16)
+            baseNoonEnd.setMinutes(0)
+            baseNoonEnd.setSeconds(0)
+            //console.log(baseMorningEnd.date())
+            let noonInitDate = baseNoonInit.date()
+            let noonInitSeconds = noonInitDate.valueOf()
 
+            if(Date.now()<noonInitSeconds){
+                var diffTime = noonInitSeconds-Date.now()
+                //console.log(diffTime)
+                let seconds = Math.floor(diffTime/1000);
+                let minutes = Math.floor(seconds/60);
+                let hour = Math.floor(minutes/60);
+
+                let resSeconds = seconds%60;
+                let resMinutes = minutes%60;
+
+                return {food:false,
+                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
+                        horaryFood:{hour:noonInitDate.getHours(),minutes:noonInitDate.getMinutes()}
+                        }
             }
+
+            //Night
+            var baseNightInit = new MakeBaseDate();
+            baseNightInit.setHour(18);
+            baseNightInit.setMinutes(30);
+            baseNightInit.setSeconds(0);
+
+            var baseNightEnd = new MakeBaseDate();
+            baseNightEnd.setHour(20)
+            baseNightEnd.setMinutes(0)
+            baseNightEnd.setSeconds(0)
+            //console.log(baseMorningEnd.date())
+            let nightInitDate = baseNightInit.date()
+            let nightInitSeconds = nightInitDate.valueOf()
+
+            if(Date.now()<nightInitSeconds){
+                var diffTime = nightInitSeconds-Date.now()
+                //console.log(diffTime)
+                let seconds = Math.floor(diffTime/1000);
+                let minutes = Math.floor(seconds/60);
+                let hour = Math.floor(minutes/60);
+
+                let resSeconds = seconds%60;
+                let resMinutes = minutes%60;
+
+                return {food:false,
+                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
+                        horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
+                        }
+            }
+        }
+
+        else{
+            painelImage('sleep')
+
         }
     }
 }
