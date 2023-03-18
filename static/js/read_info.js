@@ -125,6 +125,8 @@ const nextHoraryFood = () => {
         //time limit for get food
         if(date.hour < 22 && date.hour>7){
             painelImage('study')
+            readFood();
+            setInterval(readFood,10000)
 
             //morning
             var baseMorningInit = new MakeBaseDate();
@@ -219,6 +221,12 @@ const nextHoraryFood = () => {
 
         else{
             painelImage('sleep')
+            $('#infoHorary').html(`<small><br/> Descanse! Você já cumpriu a missão do dia!</small><hr/>`);
+            $('#foodName').text('Descanse!')
+            $('#updateDateFood').text(``)
+  
+
+
 
         }
     }
@@ -275,10 +283,9 @@ const readFood = () =>{
 
 //////////////////////// start app and loops //////////////////////////////////
 
-readFood();
 painelHorary();
 setInterval(painelHorary,700);
-setInterval(readFood,10000)
+
 })
 
 
