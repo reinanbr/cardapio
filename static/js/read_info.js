@@ -219,6 +219,7 @@ const nextHoraryFood = () => {
             }
         }
 
+        
         else{
             painelImage('sleep')
             $('#infoHorary').html(`<small><br/> Descanse! Você já cumpriu a missão do dia!</small><hr/>`);
