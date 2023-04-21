@@ -17,6 +17,11 @@ body{
   
 }
 
+
+.round_card{
+  border-radius: 20px;
+}
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
