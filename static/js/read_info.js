@@ -109,7 +109,7 @@ class MakeBaseDate{
 const painelImage = (imageName) => {
     //let htmlBase = ``
     
-    $('#painelImage').html(`              <img class="card-img-top" height='140' width="250" src='assets/imgs/${imageName}.gif'>`)
+    $('#painelImage').html(`<img class="card-img-top" height='140' width="250" src='assets/imgs/${imageName}.gif'>`)
     
 }
 
@@ -225,12 +225,41 @@ const nextHoraryFood = () => {
             $('#infoHorary').html(`<small><br/> Descanse! Você já cumpriu a missão do dia!</small><hr/>`);
             $('#foodName').text('Descanse!')
             $('#updateDateFood').text(``)
+            return {food:false,
+                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
+                        horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
+                        }
   
 
 
 
         }
     }
+   // console.log(date.dayWeek);
+    
+     else if(date.dayWeek==6){
+            painelImage('sabado')
+            $('#infoHorary').html(`<small><br/> Hoje é sabado!</small><hr/>`);
+            $('#foodName').text('🎉🎉!')
+            $('#updateDateFood').text(``)
+            return {food:false,
+                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
+                        horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
+                        }
+      
+    }
+     else if (date.dayWeek==0){
+            painelImage('domingo')
+            $('#infoHorary').html(`<small><br/> <b>Hoje é domingo!</b></small><hr/>`);
+            $('#foodName').text('🎉🎉!')
+            $('#updateDateFood').html(`<b><i>Hoje é domingo!</i></b>`)
+            return {food:false,
+                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
+                        horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
+                        }
+      
+    }
+    console.log(date.dayWeek)
 }
 
 
