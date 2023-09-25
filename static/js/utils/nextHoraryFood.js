@@ -10,7 +10,10 @@ export const nextHoraryFood = () => {
 
 
         /* horário das 7h ás 19h  */
-        if(date.hour < 19 && date.hour>7){
+
+        //console.log(`são ${date.hour}:${date.minute}:${date.seconds}`)
+        if(date.hour>6 && date.hour < 19){
+          
             painelImage('study')
             readFood();
             setInterval(readFood,10000)
@@ -123,10 +126,7 @@ export const nextHoraryFood = () => {
             $('#infoHorary').html(`<small><br/> Descanse! Você já cumpriu a missão do dia!</small><hr/>`);
             $('#foodName').text('Descanse!')
             $('#updateDateFood').text(``)
-            return {food:false,
-                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-                        horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
-                        }
+            return {food:false}
   
 
 
