@@ -23,7 +23,7 @@ export const nextHoraryFood = () => {
           
             painelImage('study')
             readFood();
-            setInterval(readFood,10000)
+            //setInterval(readFood,10000)
 
 
 

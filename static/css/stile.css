@@ -16,7 +16,17 @@ body{
     text-align: center;
   
 }
-
+.emoji{
+    padding:0;
+}
+.summaryEmoji{
+    color:grey;
+    font-size: 75%;
+}
+.showEmojis{
+    padding:0;
+    text-align: left;
+}
 
 .round_card{
   border-radius: 20px;

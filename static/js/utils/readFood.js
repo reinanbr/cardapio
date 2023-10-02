@@ -1,11 +1,24 @@
+import { readEmojis } from "./readEmojis.js";
+
 export const readFood = () =>{
-    fetch('https://raw.githubusercontent.com/reinanbr/cardapio/main/assets/info.json')
+    fetch('https://reysofts.com.br/apis/read_food.php')
     .then((res)=>{
+       
         return res.json();
     })
     .then((json)=>{
-        $('#foodName').text(json.foodName)
-        $('#updateDateFood').text(`Cardápio atualizado às ${json.hour} de ${json.date}`)
+        //console.log(Object.values(json)[0])
+        let foodValues = Object.values(json)
+        let foodKeys = Object.keys(json)
+
+        let lastFood = foodValues[foodValues.length-1]
+        let lastFoodKey = lastFood.foodKey
+
+        readEmojis(lastFoodKey)
+        console.log(lastFood)
+
+        $('#foodName').text(lastFood.food)
+        $('#updateDateFood').text(`Cardápio atualizado às ${lastFood.hora}:${lastFood.minuto} do dia ${lastFood.dia}/${lastFood.mes}/${lastFood.ano}`)
     })
     .catch((e)=>{
         $('#errorInfo').html(`

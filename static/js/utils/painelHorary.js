@@ -1,8 +1,9 @@
 import { nextHoraryFood } from "./nextHoraryFood.js";
 import { painelImage } from "./painelImage.js";
 
+let infoHorary = nextHoraryFood();
 export const painelHorary = () => {
-    let infoHorary = nextHoraryFood();
+   
    // console.log(infoHorary.secondsCount)
     if(!infoHorary.food){
      //   console.log(infoHorary.secondsCount)
