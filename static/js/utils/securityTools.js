@@ -5,3 +5,27 @@
  * quantidade de acessos na página.
  */
 
+export function saveUserAgent(){
+     let userAgent = navigator.userAgent
+     let url = window.location.href;
+
+     let dt = new Date()
+     let dateAcess = `${dt.getDate()}/${dt.getMonth()+1}/${dt.getUTCFullYear()}`
+     let hourAcess = `${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`
+
+     $("#info_device").text(userAgent)
+     let timeNow = Date.now()
+     fetch(`https://reysofts.com.br/apis/save_user.php?userDevice=${userAgent}`).then(res=>res.json()).then((res)=>{
+         console.log(res)
+         if(res.res){
+             $('#ok').text('...,')
+         }
+         else{
+             $('#ok').text('.,')
+         }
+     }).catch((e)=>{
+         console.log(e)
+     })
+}
+
+// saveUserAgent()

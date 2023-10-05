@@ -1,4 +1,6 @@
 import {painelHorary} from './utils/painelHorary.js'
+import {saveUserAgent} from './utils/securityTools.js'
+
 // Reinan Br <slimchatuba@gmail.com>
 // DateInit: 12 Mar 2023
 // LastDateUpdate: 25 Set 2023
@@ -15,9 +17,11 @@ $(function(){
 
 
 
-
+saveUserAgent();
 painelHorary();
 setInterval(painelHorary,700);
+
+
 
 })
 
