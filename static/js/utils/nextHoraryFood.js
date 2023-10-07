@@ -172,10 +172,19 @@ export const nextHoraryFood = () => {
             $('#infoHorary').html(`<small><br/> Estude! Falta pouco para você descansar!</small><hr/>`);
             $('#foodName').text('Calma, o dia já está acabando!')
             $('#updateDateFood').text(``)
-            return {food:false,
-                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-                        horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
-                        }
+            
+            let baseEndNight= new MakeBaseDate()
+            baseEndNight.setHour(22)
+            baseEndNight.setMinutes(0)
+            baseEndNight.setSeconds(0)
+
+            let baseEndNightDate = baseEndNight.date()
+            let baseEndNightDateValue = baseEndNightDate.valueOf()
+
+
+            return {food:false, timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
+            horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
+         }
         }
 
         else{
@@ -183,7 +192,9 @@ export const nextHoraryFood = () => {
             $('#infoHorary').html(`<small><br/> Descanse! Você já cumpriu a missão do dia!</small><hr/>`);
             $('#foodName').text('Descanse!')
             $('#updateDateFood').text(``)
-            return {food:false}
+            return {food:false, timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
+            horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
+         }
   
 
 

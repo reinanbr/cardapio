@@ -1,4 +1,4 @@
-import { readEmojis } from "./readEmojis.js";
+// import { readEmojis } from "./readEmojis.js";
 
 export const readFood = () =>{
     fetch('https://reysofts.com.br/apis/read_food.php')
@@ -14,7 +14,7 @@ export const readFood = () =>{
         let lastFood = foodValues[foodValues.length-1]
         let lastFoodKey = lastFood.foodKey
 
-        readEmojis(lastFoodKey)
+        // readEmojis(lastFoodKey)
         console.log(lastFood)
 
         $('#foodName').text(lastFood.food)

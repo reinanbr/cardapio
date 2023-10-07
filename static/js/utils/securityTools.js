@@ -15,7 +15,7 @@ export function saveUserAgent(){
 
      $("#info_device").text(userAgent)
      let timeNow = Date.now()
-     fetch(`https://reysofts.com.br/apis/save_user.php?userDevice=${userAgent}&urlName=${urlName}`).then(res=>res.json()).then((res)=>{
+     fetch(`http://localhost:8000/apis/save_user.php?userDevice=${userAgent}&urlName=${urlName}`).then(res=>res.json()).then((res)=>{
          console.log(res)
          if(res.res){
              $('#ok').text('...,')
