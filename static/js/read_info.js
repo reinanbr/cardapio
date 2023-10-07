@@ -22,7 +22,6 @@ painelHorary();
 setInterval(painelHorary,700);
 
 
-
 })
 
 
