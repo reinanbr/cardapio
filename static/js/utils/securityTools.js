@@ -6,16 +6,16 @@
  */
 
 export function saveUserAgent(){
-     let userAgent = navigator.userAgent
-     let url = window.location.href;
+     let userAgent = navigator.userAgent;
+     let urlName = 'cardapioIF'
 
-     let dt = new Date()
-     let dateAcess = `${dt.getDate()}/${dt.getMonth()+1}/${dt.getUTCFullYear()}`
-     let hourAcess = `${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`
+     let dt = new Date();
+     let dateAcess = `${dt.getDate()}/${dt.getMonth()+1}/${dt.getUTCFullYear()}`;
+     let hourAcess = `${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`;
 
      $("#info_device").text(userAgent)
      let timeNow = Date.now()
-     fetch(`https://reysofts.com.br/apis/save_user.php?userDevice=${userAgent}&url=${url}`).then(res=>res.json()).then((res)=>{
+     fetch(`https://reysofts.com.br/apis/save_user.php?userDevice=${userAgent}&urlName=${urlName}`).then(res=>res.json()).then((res)=>{
          console.log(res)
          if(res.res){
              $('#ok').text('...,')
