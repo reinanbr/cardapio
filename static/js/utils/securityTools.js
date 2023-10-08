@@ -7,7 +7,7 @@
 
 export function saveUserAgent(){
      let userAgent = navigator.userAgent;
-     let urlName = 'cardapioIF'
+     let urlName = window.location.href
 
      let dt = new Date();
      let dateAcess = `${dt.getDate()}/${dt.getMonth()+1}/${dt.getUTCFullYear()}`;
@@ -15,7 +15,7 @@ export function saveUserAgent(){
 
      $("#info_device").text(userAgent)
      let timeNow = Date.now()
-     fetch(`http://localhost:8000/apis/save_user.php?userDevice=${userAgent}&urlName=${urlName}`).then(res=>res.json()).then((res)=>{
+     fetch(`https://reysofts.com.br/apis/save_security.php?userDevice=${userAgent}&urlName=${urlName}`).then(res=>res.json()).then((res)=>{
          console.log(res)
          if(res.res){
              $('#ok').text('...,')

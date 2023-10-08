@@ -44,7 +44,7 @@ export const nextHoraryFood = () => {
                 let hour = Math.floor(minutes/60);
                 let resSeconds = seconds%60;
                 let resMinutes = minutes%60;
-                return {food:false,
+                return {food:false,timeFood:true,
                         timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
                         horaryFood:{hour:morningInitDate.getHours(),minutes:morningInitDate.getMinutes()}
                         }
@@ -65,7 +65,7 @@ export const nextHoraryFood = () => {
                     let hour = Math.floor(minutes/60);
                     let resSeconds = seconds%60;
                     let resMinutes = minutes%60;
-                    return {food:true,
+                    return {food:true,timeFood:true,
                             timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
                             horaryFood:{hour:morningInitDate.getHours(),minutes:morningInitDate.getMinutes()}
                             }
@@ -90,7 +90,7 @@ export const nextHoraryFood = () => {
                 let hour = Math.floor(minutes/60);
                 let resSeconds = seconds%60;
                 let resMinutes = minutes%60;
-                return {food:false,
+                return {food:false,timeFood:true,
                         timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
                         horaryFood:{hour:noonInitDate.getHours(),minutes:noonInitDate.getMinutes()}
                         }
@@ -111,7 +111,7 @@ export const nextHoraryFood = () => {
                 let hour = Math.floor(minutes/60);
                 let resSeconds = seconds%60;
                 let resMinutes = minutes%60;
-                return {food:true,
+                return {food:true,timeFood:true,
                         timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
                         horaryFood:{hour:morningInitDate.getHours(),minutes:morningInitDate.getMinutes()}
                         }
@@ -137,7 +137,7 @@ export const nextHoraryFood = () => {
                 let hour = Math.floor(minutes/60);
                 let resSeconds = seconds%60;
                 let resMinutes = minutes%60;
-                return {food:false,
+                return {food:false,timeFood:true,
                         timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
                         horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
                         }
@@ -158,7 +158,7 @@ export const nextHoraryFood = () => {
                 let hour = Math.floor(minutes/60);
                 let resSeconds = seconds%60;
                 let resMinutes = minutes%60;
-                return {food:true,
+                return {food:true,timeFood:true,
                         timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
                         horaryFood:{hour:morningInitDate.getHours(),minutes:morningInitDate.getMinutes()}
                         }
@@ -182,9 +182,7 @@ export const nextHoraryFood = () => {
             let baseEndNightDateValue = baseEndNightDate.valueOf()
 
 
-            return {food:false, timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-            horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
-         }
+            return {food:false,timeFood:false}
         }
 
         else{
@@ -192,9 +190,7 @@ export const nextHoraryFood = () => {
             $('#infoHorary').html(`<small><br/> Descanse! Você já cumpriu a missão do dia!</small><hr/>`);
             $('#foodName').text('Descanse!')
             $('#updateDateFood').text(``)
-            return {food:false, timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-            horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
-         }
+            return {food:false,timeFood:false}
   
 
 
@@ -208,10 +204,8 @@ export const nextHoraryFood = () => {
             $('#infoHorary').html(`<small><br/> Hoje é sabado!</small><hr/>`);
             $('#foodName').text('🎉🎉!')
             $('#updateDateFood').text(``)
-            return {food:false,
-                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-                        horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
-                        }
+            return {food:false,timeFood:false,
+                           }
       
     }
      else if (date.dayWeek==0){
@@ -219,10 +213,8 @@ export const nextHoraryFood = () => {
             $('#infoHorary').html(`<small><br/> <b>Hoje é domingo!</b></small><hr/>`);
             $('#foodName').text('🎉🎉!')
             $('#updateDateFood').html(`<b><i>Hoje é domingo!</i></b>`)
-            return {food:false,
-                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-                        horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
-                        }
+            return {food:false,timeFood:false,
+                         }
       
     }
     console.log(date.dayWeek)
