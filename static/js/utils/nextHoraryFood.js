@@ -14,13 +14,13 @@ export const nextHoraryFood = () => {
 
 
 
-    if(date.dayWeek>0 && date.dayWeek<=5){
+    if (date.dayWeek > 0 && date.dayWeek <= 5) {
         //time limit for get food
 
         /* horário das 7h ás 19h  */
 
-        if(date.hour > 6 && (Date.now()<=endDaySeconds)){
-          
+        if (date.hour > 6 && (Date.now() <= endDaySeconds)) {
+
             painelImage('study')
             readFood();
             //setInterval(readFood,10000)
@@ -36,19 +36,20 @@ export const nextHoraryFood = () => {
             let morningInitSeconds = morningInitDate.valueOf()
 
 
-            if(Date.now()<morningInitSeconds){
-                var diffTime = morningInitSeconds-Date.now()
+            if (Date.now() < morningInitSeconds) {
+                var diffTime = morningInitSeconds - Date.now()
                 //console.log(diffTime)
-                let seconds = Math.floor(diffTime/1000);
-                let minutes = Math.floor(seconds/60);
-                let hour = Math.floor(minutes/60);
-                let resSeconds = seconds%60;
-                let resMinutes = minutes%60;
-                return {food:false,timeFood:true,
-                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-                        horaryFood:{hour:morningInitDate.getHours(),minutes:morningInitDate.getMinutes()}
-                        }
+                let seconds = Math.floor(diffTime / 1000);
+                let minutes = Math.floor(seconds / 60);
+                let hour = Math.floor(minutes / 60);
+                let resSeconds = seconds % 60;
+                let resMinutes = minutes % 60;
+                return {
+                    food: false, timeFood: true,
+                    timeRes: { hour: hour, minutes: resMinutes, seconds: resSeconds },
+                    horaryFood: { hour: morningInitDate.getHours(), minutes: morningInitDate.getMinutes() }
                 }
+            }
 
 
             var baseMorningEnd = new MakeBaseDate();
@@ -58,18 +59,19 @@ export const nextHoraryFood = () => {
             let morningEndDate = baseMorningEnd.date()
             let morningEndSeconds = morningEndDate.valueOf()
 
-            if(Date.now()<=morningEndSeconds){
-                    var diffTime = morningEndSeconds-Date.now()
-                    let seconds = Math.floor(diffTime/1000);
-                    let minutes = Math.floor(seconds/60);
-                    let hour = Math.floor(minutes/60);
-                    let resSeconds = seconds%60;
-                    let resMinutes = minutes%60;
-                    return {food:true,timeFood:true,
-                            timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-                            horaryFood:{hour:morningInitDate.getHours(),minutes:morningInitDate.getMinutes()}
-                            }
-                    }
+            if (Date.now() <= morningEndSeconds) {
+                var diffTime = morningEndSeconds - Date.now()
+                let seconds = Math.floor(diffTime / 1000);
+                let minutes = Math.floor(seconds / 60);
+                let hour = Math.floor(minutes / 60);
+                let resSeconds = seconds % 60;
+                let resMinutes = minutes % 60;
+                return {
+                    food: true, timeFood: true,
+                    timeRes: { hour: hour, minutes: resMinutes, seconds: resSeconds },
+                    horaryFood: { hour: morningInitDate.getHours(), minutes: morningInitDate.getMinutes() }
+                }
+            }
 
 
 
@@ -83,17 +85,18 @@ export const nextHoraryFood = () => {
             let noonInitSeconds = noonInitDate.valueOf()
 
 
-            if(Date.now()<noonInitSeconds){
-                var diffTime = noonInitSeconds-Date.now()
-                let seconds = Math.floor(diffTime/1000);
-                let minutes = Math.floor(seconds/60);
-                let hour = Math.floor(minutes/60);
-                let resSeconds = seconds%60;
-                let resMinutes = minutes%60;
-                return {food:false,timeFood:true,
-                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-                        horaryFood:{hour:noonInitDate.getHours(),minutes:noonInitDate.getMinutes()}
-                        }
+            if (Date.now() < noonInitSeconds) {
+                var diffTime = noonInitSeconds - Date.now()
+                let seconds = Math.floor(diffTime / 1000);
+                let minutes = Math.floor(seconds / 60);
+                let hour = Math.floor(minutes / 60);
+                let resSeconds = seconds % 60;
+                let resMinutes = minutes % 60;
+                return {
+                    food: false, timeFood: true,
+                    timeRes: { hour: hour, minutes: resMinutes, seconds: resSeconds },
+                    horaryFood: { hour: noonInitDate.getHours(), minutes: noonInitDate.getMinutes() }
+                }
             }
 
 
@@ -104,18 +107,19 @@ export const nextHoraryFood = () => {
             let noonEndDate = baseNoonEnd.date()
             let noonEndSeconds = noonEndDate.valueOf()
 
-            if(Date.now()<=noonEndSeconds){
-                var diffTime = noonEndSeconds-Date.now()
-                let seconds = Math.floor(diffTime/1000);
-                let minutes = Math.floor(seconds/60);
-                let hour = Math.floor(minutes/60);
-                let resSeconds = seconds%60;
-                let resMinutes = minutes%60;
-                return {food:true,timeFood:true,
-                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-                        horaryFood:{hour:morningInitDate.getHours(),minutes:morningInitDate.getMinutes()}
-                        }
+            if (Date.now() <= noonEndSeconds) {
+                var diffTime = noonEndSeconds - Date.now()
+                let seconds = Math.floor(diffTime / 1000);
+                let minutes = Math.floor(seconds / 60);
+                let hour = Math.floor(minutes / 60);
+                let resSeconds = seconds % 60;
+                let resMinutes = minutes % 60;
+                return {
+                    food: true, timeFood: true,
+                    timeRes: { hour: hour, minutes: resMinutes, seconds: resSeconds },
+                    horaryFood: { hour: morningInitDate.getHours(), minutes: morningInitDate.getMinutes() }
                 }
+            }
 
 
 
@@ -130,17 +134,18 @@ export const nextHoraryFood = () => {
             let nightInitSeconds = nightInitDate.valueOf()
 
 
-            if(Date.now()<nightInitSeconds){
-                var diffTime = nightInitSeconds-Date.now()
-                let seconds = Math.floor(diffTime/1000);
-                let minutes = Math.floor(seconds/60);
-                let hour = Math.floor(minutes/60);
-                let resSeconds = seconds%60;
-                let resMinutes = minutes%60;
-                return {food:false,timeFood:true,
-                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-                        horaryFood:{hour:nightInitDate.getHours(),minutes:nightInitDate.getMinutes()}
-                        }
+            if (Date.now() < nightInitSeconds) {
+                var diffTime = nightInitSeconds - Date.now()
+                let seconds = Math.floor(diffTime / 1000);
+                let minutes = Math.floor(seconds / 60);
+                let hour = Math.floor(minutes / 60);
+                let resSeconds = seconds % 60;
+                let resMinutes = minutes % 60;
+                return {
+                    food: false, timeFood: true,
+                    timeRes: { hour: hour, minutes: resMinutes, seconds: resSeconds },
+                    horaryFood: { hour: nightInitDate.getHours(), minutes: nightInitDate.getMinutes() }
+                }
             }
 
 
@@ -151,29 +156,30 @@ export const nextHoraryFood = () => {
             let nightEndDate = baseNightEnd.date()
             let nightEndSeconds = nightEndDate.valueOf()
 
-            if(Date.now()<=nightEndSeconds){
-                var diffTime = nightEndSeconds-Date.now()
-                let seconds = Math.floor(diffTime/1000);
-                let minutes = Math.floor(seconds/60);
-                let hour = Math.floor(minutes/60);
-                let resSeconds = seconds%60;
-                let resMinutes = minutes%60;
-                return {food:true,timeFood:true,
-                        timeRes:{hour:hour,minutes:resMinutes,seconds:resSeconds},
-                        horaryFood:{hour:morningInitDate.getHours(),minutes:morningInitDate.getMinutes()}
-                        }
+            if (Date.now() <= nightEndSeconds) {
+                var diffTime = nightEndSeconds - Date.now()
+                let seconds = Math.floor(diffTime / 1000);
+                let minutes = Math.floor(seconds / 60);
+                let hour = Math.floor(minutes / 60);
+                let resSeconds = seconds % 60;
+                let resMinutes = minutes % 60;
+                return {
+                    food: true, timeFood: true,
+                    timeRes: { hour: hour, minutes: resMinutes, seconds: resSeconds },
+                    horaryFood: { hour: morningInitDate.getHours(), minutes: morningInitDate.getMinutes() }
                 }
+            }
         }
 
 
-        else if ((date.hour>=18 && date.minute>=50) && date.hour<22){
+        else if ((date.hour >= 18 && date.minute >= 50) && date.hour < 22) {
             console.log('end')
             painelImage('study')
             $('#infoHorary').html(`<small><br/> Estude! Falta pouco para você descansar!</small><hr/>`);
             $('#foodName').text('Calma, o dia já está acabando!')
             $('#updateDateFood').text(``)
-            
-            let baseEndNight= new MakeBaseDate()
+
+            let baseEndNight = new MakeBaseDate()
             baseEndNight.setHour(22)
             baseEndNight.setMinutes(0)
             baseEndNight.setSeconds(0)
@@ -182,40 +188,42 @@ export const nextHoraryFood = () => {
             let baseEndNightDateValue = baseEndNightDate.valueOf()
 
 
-            return {food:false,timeFood:false}
+            return { food: false, timeFood: false }
         }
 
-        else{
+        else {
             painelImage('sleep')
             $('#infoHorary').html(`<small><br/> Descanse! Você já cumpriu a missão do dia!</small><hr/>`);
             $('#foodName').text('Descanse!')
             $('#updateDateFood').text(``)
-            return {food:false,timeFood:false}
-  
+            return { food: false, timeFood: false }
+
 
 
 
         }
     }
-   // console.log(date.dayWeek);
-    
-     else if(date.dayWeek==6){
-            painelImage('sabado')
-            $('#infoHorary').html(`<small><br/> Hoje é sabado!</small><hr/>`);
-            $('#foodName').text('🎉🎉!')
-            $('#updateDateFood').text(``)
-            return {food:false,timeFood:false,
-                           }
-      
+    // console.log(date.dayWeek);
+
+    else if (date.dayWeek == 6) {
+        painelImage('sabado')
+        $('#infoHorary').html(`<small><br/> Hoje é sabado!</small><hr/>`);
+        $('#foodName').text('🎉🎉!')
+        $('#updateDateFood').text(``)
+        return {
+            food: false, timeFood: false,
+        }
+
     }
-     else if (date.dayWeek==0){
-            painelImage('domingo')
-            $('#infoHorary').html(`<small><br/> <b>Hoje é domingo!</b></small><hr/>`);
-            $('#foodName').text('🎉🎉!')
-            $('#updateDateFood').html(`<b><i>Hoje é domingo!</i></b>`)
-            return {food:false,timeFood:false,
-                         }
-      
+    else if (date.dayWeek == 0) {
+        painelImage('domingo')
+        $('#infoHorary').html(`<small><br/> <b>Hoje é domingo!</b></small><hr/>`);
+        $('#foodName').text('🎉🎉!')
+        $('#updateDateFood').html(`<b><i>Hoje é domingo!</i></b>`)
+        return {
+            food: false, timeFood: false,
+        }
+
     }
     console.log(date.dayWeek)
 }
