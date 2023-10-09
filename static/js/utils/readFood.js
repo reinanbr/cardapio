@@ -32,6 +32,7 @@ export const readFood = () =>{
 
 
         $('#updateDateFood').text(`Cardápio atualizado às ${lastFood.hora-3}:${lastFood.minuto}, do dia ${lastFood.dia} ${monthsName[lastFood.mes-1]} ${lastFood.ano}.`)
+        $('#sja').text('Sujeito a alterações.')
     })
     .catch((e)=>{
         $('#errorInfo').html(`

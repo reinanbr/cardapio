@@ -30,6 +30,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link rel='stylesheet' href='static/css/stile.css'>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script type="module" src="static/js/read_info.js"></script>
+
+  <script type='module'>
+    import { readFood } from './static/js/utils/readFood.js';
+    $(document).ready(function() {
+        // Adiciona um ouvinte de evento para o evento de colagem
+        $(document).on('paste', function () {
+            // Altera o conteúdo da meta tag com name="description" quando alguém cola
+           readFood()
+        });
+    });
+</script>
+
   <!-- <script src="https://unpkg.com/react@15/dist/react.js"></script> <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script> -->
 
   <title>Cardápio</title>
@@ -57,7 +74,8 @@
   <br /><br />
   <div id='infoError'></div>
   <h3 id='oLanche'></h3>
-  <small><i id='updateDateFood'></i></small>
+  <small><i id='updateDateFood'></i></small><br/>
+  <small><i id='sja'></i></small>
   <br /><br />
 
 
