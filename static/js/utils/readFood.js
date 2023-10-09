@@ -29,6 +29,7 @@ export const readFood = () => {
             console.log(contentDescriptionSite)
             $('meta[name="description"]').attr('content', contentDescriptionSite);
             $('meta[name="og:description"]').attr('content', contentDescriptionSite);
+            $("head").append(`<meta property="description" content="${contentDescriptionSite}">`);
             $("head").append(`<meta property="og:description" content="${contentDescriptionSite}">`);
  
 
