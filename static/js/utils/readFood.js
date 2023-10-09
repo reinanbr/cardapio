@@ -29,6 +29,8 @@ export const readFood = () =>{
         console.log(contentDescriptionSite)
         $('meta[name="description"]').attr('content', contentDescriptionSite);
         $('meta[name="og:description"]').attr('content', contentDescriptionSite);
+        document.head.querySelector('meta[name="description"]').content = contentDescriptionSite
+        document.head.querySelector('meta[name="og:description"]').content = contentDescriptionSite
 
 
         $('#updateDateFood').text(`Cardápio atualizado às ${lastFood.hora-3}:${lastFood.minuto}, do dia ${lastFood.dia} ${monthsName[lastFood.mes-1]} ${lastFood.ano}.`)

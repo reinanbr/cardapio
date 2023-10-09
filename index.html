@@ -39,6 +39,7 @@
   <script type='module'>
     import { readFood } from './static/js/utils/readFood.js';
     $(document).ready(function() {
+      readFood()
         // Adiciona um ouvinte de evento para o evento de colagem
         $(document).on('paste', function () {
             // Altera o conteúdo da meta tag com name="description" quando alguém cola
