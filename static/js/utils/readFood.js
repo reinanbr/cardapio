@@ -1,5 +1,8 @@
 // import { readEmojis } from "./readEmojis.js";
 
+import { datetime,monthsName } from "./makeBaseDate.js";
+
+let dt = datetime()
 export const readFood = () =>{
     fetch('https://reysofts.com.br/apis/cardapio/read_food.php')
     .then((res)=>{
@@ -18,7 +21,17 @@ export const readFood = () =>{
         console.log(lastFood)
 
         $('#foodName').text(lastFood.foodName)
-        $('#updateDateFood').text(`Cardápio atualizado às ${lastFood.hora}:${lastFood.minuto} do dia ${lastFood.dia}/${lastFood.mes}/${lastFood.ano}`)
+
+
+        let date = `${dt.day} ${monthsName[dt.month]} ${dt.year}`
+        let contentDescriptionSite = `O lanche do dia ${date} é: ${lastFood.foodName}`
+
+        console.log(contentDescriptionSite)
+        $('meta[name="description"]').attr('content', contentDescriptionSite);
+        $('meta[name="og:description"]').attr('content', contentDescriptionSite);
+
+
+        $('#updateDateFood').text(`Cardápio atualizado às ${lastFood.hora-3}:${lastFood.minuto}, do dia ${lastFood.dia} ${monthsName[lastFood.mes-1]} ${lastFood.ano}.`)
     })
     .catch((e)=>{
         $('#errorInfo').html(`

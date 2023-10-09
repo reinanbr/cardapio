@@ -181,6 +181,7 @@ export const nextHoraryFood = () => {
 
         else if (date.hour >= 18 && (Date.now() <= endDaySeconds)) {
             console.log('end')
+            $('#oLanche').text('')
             painelImage('study')
             $('#infoHorary').html(`<small><br/> Estude! Falta pouco para você descansar!</small><hr/>`);
             $('#foodName').text('Calma, o dia já está acabando!')
@@ -199,6 +200,7 @@ export const nextHoraryFood = () => {
         }
 
         else {
+            $('#oLanche').text('')
             painelImage('sleep')
             $('#infoHorary').html(`<small><br/> Descanse! Você já cumpriu a missão do dia!</small><hr/>`);
             $('#foodName').text('Descanse!')
@@ -223,6 +225,7 @@ export const nextHoraryFood = () => {
 
     }
     else if (date.dayWeek == 0) {
+        $('#oLanche').text('')
         painelImage('domingo')
         $('#infoHorary').html(`<small><br/> <b>Hoje é domingo!</b></small><hr/>`);
         $('#foodName').text('🎉🎉!')

@@ -46,4 +46,16 @@ export class MakeBaseDate {
     }
 }
 
+export const monthsName = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+
+export const datetime = () =>{
+    let res = {}
+    res.datetime = new Date()
+    res.day = res.datetime.getDate()
+    res.month = res.datetime.getMonth()
+    res.year = res.datetime.getFullYear()
+
+    return res
+}
+
 

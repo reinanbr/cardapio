@@ -21,6 +21,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
   <link rel="manifest" href="assets/ico/site.webmanifest">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
@@ -42,11 +46,17 @@
 
 
 
-
+<div id="randomText" class=" app h-120 d-flex align-items-center justify-content-center round_card textRandom">
+  <div class="app h-120 d-flex align-items-center justify-content-center round_card randomTextInOut">
+    <small><i id="randomTextBody"></i><br/>
+      <i style='text-align:left' id="randomTextAuthor"></i></small>
+      
+  </div>
+</div>
 
   <br /><br />
   <div id='infoError'></div>
-  <h3>O lanche do dia é:</h3>
+  <h3 id='oLanche'></h3>
   <small><i id='updateDateFood'></i></small>
   <br /><br />
 
@@ -115,10 +125,11 @@
       © 2023
       <a class="text-white" href="https://github.com/reinanbr">Reinan Br</a>
 
-      <small><a class="text-white" href="/cardapio/privacidade.html">Política de Privacidade e Direito Autoral</a></small>
-        <!-- <br><small><a class="text-white" href="/privacidade.html">Codigo-Fonte</a></small>
+      <small><a class="text-white" href="/cardapio/privacidade.html">Política de Privacidade e Direito
+          Autoral</a></small>
+      <!-- <br><small><a class="text-white" href="/privacidade.html">Codigo-Fonte</a></small>
        -->
-    
+
 
 
       <hr style="background-color:white" />
@@ -136,10 +147,12 @@
       </div>
 
     </div>
+    <!-- <div class='nameVersion'><small>Em desenvolvimento..</small></div> -->
     <div class='text-center p-3' style='background-color:#001339'><small>Este site não possui nenhuma ligação com
         nenhuma instituição federal.</small></div>
     <!-- Copyright -->
   </footer>
+
 </body>
 
 </html>

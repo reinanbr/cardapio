@@ -11,11 +11,11 @@ export const painelHorary = () => {
     }
     else if (infoHorary.timeFood) {
    
-        $('#infoHorary').html(`<small><b>Atenção! O lanche foi liberado! foi liberado! </b><br/><br/>Faltam ${infoHorary.timeRes.minutes} minutos e ${infoHorary.timeRes.seconds} segundos para o intervalo acabar!</small>`);
+        $('#infoHorary').html(`<small><b>Atenção! O lanche foi liberado!</b><br/><br/>Faltam ${infoHorary.timeRes.minutes} minutos e ${infoHorary.timeRes.seconds} segundos para o intervalo acabar!</small>`);
         painelImage('food0')
     }
     else {
-        $('#infoHorary').html('')
+    console.log('endDay')
     }
 }
 

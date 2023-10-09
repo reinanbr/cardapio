@@ -16,6 +16,14 @@ body{
     text-align: center;
   
 }
+
+.textRandomInOut{
+    /* font-family: 'Josefin Sans', sans-serif; */
+    width: 40%;
+  
+
+}
+
 .emoji{
     padding:0;
 }
@@ -55,4 +63,9 @@ body{
   
     /* Support for IE. */
     font-feature-settings: 'liga';
+  }
+
+  .nameVersion{
+    background-color:#003322;
+    width:100%;
   }
