@@ -1,7 +1,7 @@
 import { countTime } from "./countTime.js"
 
-export class MakeBaseDate{
-    constructor(){
+export class MakeBaseDate {
+    constructor() {
         this.year = false
         this.month = false
         this.day = false
@@ -10,30 +10,30 @@ export class MakeBaseDate{
         this.seconds = false
     }
 
-    setMonth(month){
+    setMonth(month) {
         this.month = month.toString().length > 1 ? month : `0${month}`
         return this.month
     }
-    setDay(day){
+    setDay(day) {
         this.day = day.toString().length > 1 ? day : `0${day}`
         return this.day
     }
-    setHour(hour){
+    setHour(hour) {
         this.hour = hour.toString().length > 1 ? hour : `0${hour}`
         return this.hour
     }
-    setMinutes(minutes){
+    setMinutes(minutes) {
         this.minutes = minutes.toString().length > 1 ? minutes : `0${minutes}`
         return this.minutes
     }
-    setSeconds(seconds){
+    setSeconds(seconds) {
         this.seconds = seconds.toString().length > 1 ? seconds : `0${seconds}`
         return this.seconds
     }
 
-    date(){
+    date() {
         let dateToday = countTime()
-        let month = this.month ? this.month : this.setMonth(dateToday.month+1)
+        let month = this.month ? this.month : this.setMonth(dateToday.month + 1)
         let day = this.day ? this.date : this.setDay(dateToday.dayDate)
         let hour = this.hour ? this.hour : this.setHour(dateToday.hour)
         let minutes = this.minutes ? this.minutes : this.setMinutes(dateToday.minute)

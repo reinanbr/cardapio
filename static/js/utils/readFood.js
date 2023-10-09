@@ -1,7 +1,7 @@
 // import { readEmojis } from "./readEmojis.js";
 
 export const readFood = () =>{
-    fetch('https://reysofts.com.br/apis/read_food.php')
+    fetch('https://reysofts.com.br/apis/cardapio/read_food.php')
     .then((res)=>{
        
         return res.json();
@@ -17,7 +17,7 @@ export const readFood = () =>{
         // readEmojis(lastFoodKey)
         console.log(lastFood)
 
-        $('#foodName').text(lastFood.food)
+        $('#foodName').text(lastFood.foodName)
         $('#updateDateFood').text(`Cardápio atualizado às ${lastFood.hora}:${lastFood.minuto} do dia ${lastFood.dia}/${lastFood.mes}/${lastFood.ano}`)
     })
     .catch((e)=>{

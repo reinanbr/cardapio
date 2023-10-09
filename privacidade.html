@@ -63,6 +63,25 @@
         Brasil. Ressaltamos nosso compromisso em assegurar a privacidade dos usuários, mantendo práticas alinhadas aos
         mais elevados padrões legais de proteção de dados.</p>
 
+
+      <strong>Respeito aos Direitos Autorais e Licença <a
+          href="https://github.com/reinanbr/cardapio/blob/main/LICENSE">GPLv3</a></strong>
+      <p>
+
+        Comprometemo-nos a respeitar integralmente os direitos autorais associados ao nosso site, licenciado sob a
+        Licença Pública Geral GNU (GPL), versão 3 (<a
+          href="https://github.com/reinanbr/cardapio/blob/main/LICENSE">GPLv3</a>). Este compromisso abrange o respeito aos direitos autorais
+        originais, bem como o cumprimento estrito dos termos estabelecidos pela <a
+          href="https://github.com/reinanbr/cardapio/blob/main/LICENSE">GPLv3</a>.
+
+
+        Alertamos que qualquer tentativa de plágio ou desrespeito à Licença <a
+          href="https://github.com/reinanbr/cardapio/blob/main/LICENSE">GPLv3</a> pode acarretar em penalidades legais
+        substanciais no âmbito da legislação brasileira. O plágio, incluindo a cópia inadequada de código protegido por
+        direitos autorais, é uma violação séria e pode resultar em consequências jurídicas significativas no Brasil,
+        incluindo a imposição de multas substanciais e outras medidas legais disponíveis conforme as leis de direitos
+        autorais brasileiras.</p>
+
       <strong>Transparência Pela Licença <a
           href="https://github.com/reinanbr/cardapio/blob/main/LICENSE">GPLv3</a></strong>
       <p>
@@ -72,7 +91,8 @@
         <a href="https://github.com/reinanbr/cardapio">código-fonte</a> do site. Esta transparência promovida pela <a
           href="https://github.com/reinanbr/cardapio/blob/main/LICENSE">GPLv3</a> reforça não apenas a integridade do
         software, mas também permite que os usuários e a comunidade tenham total visibilidade sobre as práticas de
-        segurança e funcionamento do site.</p>
+        segurança e funcionamento do site.
+      </p>
 
 
       <strong>Contribuição Pela Comunidade</strong>
@@ -155,9 +175,11 @@
         serão refletidas no repositório do código-fonte e comunicadas de forma apropriada à comunidade.
 
         Ao acessar nosso site, os usuários concordam com os termos delineados nesta política de privacidade, bem como
-        com os termos da GNU GPL-3.0. Para esclarecimentos ou indagações, encorajamos a participação na comunidade ou o
+        com os termos da GNU <a
+          href="https://github.com/reinanbr/cardapio/blob/main/LICENSE">GPLv3</a>. Para esclarecimentos ou indagações, encorajamos a participação na comunidade ou o
         contato direto conosco. Envie um email para <strong>serviceinfo@reysofts.com.br</strong> ou
-        <strong>reinan.bezerra@aluno.ifsertao-pe.edu.br</strong>.</p>
+        <strong>reinan.bezerra@aluno.ifsertao-pe.edu.br</strong>.
+      </p>
 
 
 
@@ -228,12 +250,17 @@
       <hr style="background-color:white" />
       <br />
       <br />
+      <div id="painelAlert">
+
+      </div>
       <div style='text-align:left'>
-        <textarea style="border-color:white;border-radius:10px; font-size:15px;padding:19px 25px;height:17vh;width:25wh"
+        <textarea id="inputComment"
+          style="border-color:white;border-radius:10px; font-size:15px;padding:19px 25px;height:17vh;width:25wh"
           placeholder="relate um bug, ou envie uma sugestão ou comentário."></textarea>
         <br />
-        <button type='button' onclick="sendFeedBack()" class='btn btn-dark'>enviar</button>
+        <button type='button' id="btnSendFeed" class='btn btn-dark'>enviar</button>
       </div>
+
 
     </div>
     <div class='text-center p-3' style='background-color:#001339'><small>Este site não possui nenhuma ligação com

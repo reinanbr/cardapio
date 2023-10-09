@@ -6,9 +6,16 @@ import { readFood } from "./readFood.js";
 export const nextHoraryFood = () => {
     let date = countTime()
 
+    let endDayFood = new MakeBaseDate()
+    endDayFood.setHour(19)
+    endDayFood.setMinutes(0)
+    endDayFood.setSeconds(0)
+    let endDayFoodSeconds = endDayFood.date().valueOf()
+
+
     let endDay = new MakeBaseDate()
-    endDay.setHour(18)
-    endDay.setMinutes(50)
+    endDay.setHour(22)
+    endDay.setMinutes(0)
     endDay.setSeconds(0)
     let endDaySeconds = endDay.date().valueOf()
 
@@ -19,10 +26,10 @@ export const nextHoraryFood = () => {
 
         /* horário das 7h ás 19h  */
 
-        if (date.hour > 6 && (Date.now() <= endDaySeconds)) {
+        if (date.hour > 6 && (Date.now() <= endDayFoodSeconds)) {
 
             painelImage('study')
-            readFood();
+            // readFood();
             //setInterval(readFood,10000)
 
 
@@ -53,8 +60,8 @@ export const nextHoraryFood = () => {
 
 
             var baseMorningEnd = new MakeBaseDate();
-            baseMorningEnd.setHour(9)
-            baseMorningEnd.setMinutes(50)
+            baseMorningEnd.setHour(10)
+            baseMorningEnd.setMinutes(0)
             baseMorningEnd.setSeconds(0)
             let morningEndDate = baseMorningEnd.date()
             let morningEndSeconds = morningEndDate.valueOf()
@@ -101,8 +108,8 @@ export const nextHoraryFood = () => {
 
 
             var baseNoonEnd = new MakeBaseDate();
-            baseNoonEnd.setHour(15)
-            baseNoonEnd.setMinutes(50)
+            baseNoonEnd.setHour(16)
+            baseNoonEnd.setMinutes(0)
             baseNoonEnd.setSeconds(0)
             let noonEndDate = baseNoonEnd.date()
             let noonEndSeconds = noonEndDate.valueOf()
@@ -150,8 +157,8 @@ export const nextHoraryFood = () => {
 
 
             var baseNightEnd = new MakeBaseDate();
-            baseNightEnd.setHour(18)
-            baseNightEnd.setMinutes(50)
+            baseNightEnd.setHour(19)
+            baseNightEnd.setMinutes(0)
             baseNightEnd.setSeconds(0)
             let nightEndDate = baseNightEnd.date()
             let nightEndSeconds = nightEndDate.valueOf()
@@ -172,7 +179,7 @@ export const nextHoraryFood = () => {
         }
 
 
-        else if ((date.hour >= 18 && date.minute >= 50) && date.hour < 22) {
+        else if (date.hour >= 18 && (Date.now() <= endDaySeconds)) {
             console.log('end')
             painelImage('study')
             $('#infoHorary').html(`<small><br/> Estude! Falta pouco para você descansar!</small><hr/>`);

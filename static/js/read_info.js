@@ -1,9 +1,10 @@
 import {painelHorary} from './utils/painelHorary.js'
 import {saveUserAgent} from './utils/securityTools.js'
-
+import { sendFeedBack } from './utils/sendFeedback.js';
+import { readFood } from './utils/readFood.js';
 // Reinan Br <slimchatuba@gmail.com>
 // DateInit: 12 Mar 2023
-// LastDateUpdate: 25 Set 2023
+// LastDateUpdate: 09 Out 2023
 // LICENSE: BSD-3
 // WebApp: foodInfo from my college
 // Version: 0.3 - Caniball
@@ -16,7 +17,12 @@ $(function(){
 //                 night:{init:'18:30',end:'19:00'}};
 
 
+$('#btnSendFeed').click(()=>{
+    sendFeedBack()
+})
 
+
+readFood()
 saveUserAgent();
 painelHorary();
 setInterval(painelHorary,700);

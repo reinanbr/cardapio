@@ -111,19 +111,28 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: #00402b;">
+    <div class="shadow-lg card d-flex p-1 text-center p-3" style="background-color: #00402b;">
       © 2023
       <a class="text-white" href="https://github.com/reinanbr">Reinan Br</a>
+      <br />
+      <p><small><a class="text-white" href="/privacidade.html">Política de Privacidade e Direito Autoral</a></small>
+        <!-- <br><small><a class="text-white" href="/privacidade.html">Codigo-Fonte</a></small>
+       -->
+      </p>
 
-      <br>
+
       <hr style="background-color:white" />
       <br />
       <br />
+      <div id="painelAlert">
+
+      </div>
       <div style='text-align:left'>
-        <textarea style="border-color:white;border-radius:10px; font-size:15px;padding:19px 25px;height:17vh;width:25wh"
+        <textarea id='inputComment'
+          style="border-color:white;border-radius:10px; font-size:15px;padding:19px 25px;height:17vh;width:25wh"
           placeholder="relate um bug, ou envie uma sugestão ou comentário."></textarea>
         <br />
-        <button type='button' onclick="sendFeedBack()" class='btn btn-dark'>enviar</button>
+        <button type='button' id="btnSendFeed" class='btn btn-dark'>enviar</button>
       </div>
 
     </div>
